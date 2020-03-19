@@ -4,23 +4,51 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+
+        div.square {
+            color: blue;
+            background-color: lightblue;
+            padding: 10px;
+            margin: 10px;
+            border: solid green 2px;
+            width: 30px;
+            height: 30px;
+            float: left;
+        }
+
+            div.first {
+                clear: left;
+            }
+    </style>
 </head>
 <body>
-
+    <div id="game"></div>
+    <button onclick="startGame()">Start</button>
 
     <script>
         let gameModel;
+
+        startGame();
+        function show() {
+            document.getElementById('game').innerHTML =
+                gameModel.numbers.map((n, i) => `
+                        <div class="square ${i % 3 === 0 ? 'first' : ''}" onclick="play(${i})">${n}</div>
+                    `).join('');
+        }
 
         async function startGame() {
             let response = await axios.get('/api/game');
             gameModel = response.data;
             console.log(gameModel);
+            show();
         }
 
         async function readGame(gameId) {
             let response = await axios.get('/api/game/' + gameId);
             gameModel = response.data;
             console.log(gameModel);
+            show();
         }
 
         async function play(index) {
@@ -29,6 +57,7 @@
             let response = await axios.put('/api/game', paramObj);
             gameModel = response.data;
             console.log(gameModel);
+            show();
         }
 
     </script>

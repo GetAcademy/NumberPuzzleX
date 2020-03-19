@@ -12,7 +12,10 @@ namespace _40_NumberPuzzleX.Core.Domain.Model
         public int PlayCount { get; private set; }
         public bool IsSolved => Enumerable.Range(0, _numbers.Length - 1)
             .All(i => _numbers[i] == i + 1);
-        public int[] Numbers => (int[])_numbers.Clone();
+
+        public char[] Numbers => Enumerable.Range(0, _numbers.Length)
+                                           .Select(i => this[i])
+                                           .ToArray();
 
         public GameModel(int[] numbers = null)
         {
