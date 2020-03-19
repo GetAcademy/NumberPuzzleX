@@ -44,8 +44,13 @@ namespace _40_NumberPuzzleX.Core.Domain.Model
 
         private int? GetBlankNeighbourIndex(int index)
         {
-            var neighbourIndexes = new[] { index - 3, index - 1, index + 1, index + 3 };
-            return neighbourIndexes.FirstOrDefault(IsBlank);
+            var row = index / 3;
+            var col = index % 3;
+            if (col < 2 && IsBlank(index + 1)) return index + 1;
+            if (col > 0 && IsBlank(index - 1)) return index - 1;
+            if (row < 2 && IsBlank(index + 3)) return index + 3;
+            if (row > 0 && IsBlank(index - 3)) return index - 3;
+            return null;
         }
 
         private bool IsBlank(int i)
