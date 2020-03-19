@@ -7,7 +7,7 @@ namespace _10_NumberPuzzleX.Infrastructure.API.ViewModel
 {
     public class PlayViewModel
     {
-        public int Index;
-        public string GameId;
+        public int Index { get; set; }
+        public string GameId { get; set; }
     }
 }

@@ -17,10 +17,16 @@
             console.log(gameModel);
         }
 
+        async function readGame(gameId) {
+            let response = await axios.get('/api/game/' + gameId);
+            gameModel = response.data;
+            console.log(gameModel);
+        }
+
         async function play(index) {
-            const param = { index, gameId: gameModel.id };
-            console.log(param);
-            let response = await axios.put('/api/game', param);
+            const paramObj = { "index": index, "gameId": gameModel.id };
+            console.log(paramObj);
+            let response = await axios.put('/api/game', paramObj);
             gameModel = response.data;
             console.log(gameModel);
         }

@@ -27,7 +27,7 @@ namespace NumberPuzzleX.Controllers
             return _gameService.StartGame();
         }
 
-        [HttpGet("gameId")]
+        [HttpGet("{gameId}")]
         public GameModel Read(string gameId)
         {
             var guid = new Guid(gameId);
@@ -35,10 +35,10 @@ namespace NumberPuzzleX.Controllers
         }
 
         [HttpPut]
-        public GameModel Play([FromBody]PlayViewModel playViewModel)
+        public GameModel Play(PlayViewModel play)
         {
-            var guid = new Guid(playViewModel.GameId);
-            return _gameService.Play(playViewModel.Index, guid);
+            var guid = new Guid(play.GameId);
+            return _gameService.Play(play.Index, guid);
         }
     }
 }
