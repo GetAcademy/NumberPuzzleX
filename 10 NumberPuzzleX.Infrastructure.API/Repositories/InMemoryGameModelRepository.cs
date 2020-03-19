@@ -9,26 +9,25 @@ namespace _10_NumberPuzzleX.Infrastructure.API.InMemoryDb
 {
     public class InMemoryGameModelRepository : IGameModelRepository
     {
-        private readonly List<GameModel> _gameModels;
+        private readonly Dictionary<Guid,GameModel> _gameModels;
 
         public InMemoryGameModelRepository()
         {
-            _gameModels = new List<GameModel>();
+            _gameModels = new Dictionary<Guid, GameModel>();
         }
         public void Create(GameModel gameModel)
         {
-            _gameModels.Add(gameModel);
+            _gameModels.Add(gameModel.Id, gameModel);
         }
 
         public GameModel Read(Guid id)
         {
-            return _gameModels.Find(gm => gm.Id == id);
+            return _gameModels[id];
         }
 
         public void Update(GameModel gameModel)
         {
-            var index = _gameModels.FindIndex(gm => gm.Id == gameModel.Id);
-            _gameModels[index] = gameModel;
+            _gameModels[gameModel.Id] = gameModel;
         }
     }
 }
