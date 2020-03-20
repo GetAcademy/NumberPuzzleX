@@ -12,5 +12,10 @@ namespace _40_NumberPuzzleX.Core.Domain.Model
         {
             Id = Guid.NewGuid();
         }
+
+        public BaseModel(Guid id)
+        {
+            Id = id;
+        }
     }
 }

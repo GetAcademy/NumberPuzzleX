@@ -17,6 +17,12 @@ namespace _40_NumberPuzzleX.Core.Domain.Model
                                            .Select(i => this[i])
                                            .ToArray();
 
+        public GameModel(Guid id, int playCount, int[] numbers = null) : base(id)
+        {
+            PlayCount = playCount;
+            _numbers = (int[])numbers.Clone();
+        }
+
         public GameModel(int[] numbers = null)
         {
             _random = new Random();

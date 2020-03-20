@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _40_NumberPuzzleX.Core.Domain.Model;
-using _40_NumberPuzzleX.Core.Domain.Services;
+using _40_NumberPuzzleX.Core.Domain.Service;
 
 namespace _10_NumberPuzzleX.Infrastructure.API.InMemoryDb
 {
@@ -15,19 +15,20 @@ namespace _10_NumberPuzzleX.Infrastructure.API.InMemoryDb
         {
             _gameModels = new Dictionary<Guid, GameModel>();
         }
-        public void Create(GameModel gameModel)
+
+        public Task Create(GameModel gameModel)
         {
-            _gameModels.Add(gameModel.Id, gameModel);
+            return Task.Run(() => _gameModels.Add(gameModel.Id, gameModel));
         }
 
-        public GameModel Read(Guid id)
+        public Task<GameModel> Read(Guid id)
         {
-            return _gameModels[id];
+            return Task.Run(()=> _gameModels[id]);
         }
 
-        public void Update(GameModel gameModel)
+        public Task Update(GameModel gameModel)
         {
-            _gameModels[gameModel.Id] = gameModel;
+            return Task.Run(()=>_gameModels[gameModel.Id] = gameModel);
         }
     }
 }

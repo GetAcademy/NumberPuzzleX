@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using _40_NumberPuzzleX.Core.Application.Services;
+using System.Threading.Tasks;
+using _40_NumberPuzzleX.Core.Application.Service;
 using _40_NumberPuzzleX.Core.Domain.Model;
-using _40_NumberPuzzleX.Core.Domain.Services;
+using _40_NumberPuzzleX.Core.Domain.Service;
 using NUnit.Framework;
 
 namespace _90_NumberPuzzleX.UnitTest
@@ -11,7 +12,7 @@ namespace _90_NumberPuzzleX.UnitTest
     class GameServiceTest
     {
         [Test]
-        public void TestPlay()
+        public async void TestPlay()
         {
             // Lær og bruk Moq (NuGet)
             // Men dette eksemplet viser hva mocking er
@@ -19,7 +20,7 @@ namespace _90_NumberPuzzleX.UnitTest
             var gameId = new Guid("82ad76d0-d796-4bb5-bddc-1318dcd8cb68");
             var mock = new MyMockGameModelRepository();
             var service = new GameService(mock);
-            service.Play(0, gameId);
+            await service.Play(0, gameId);
 
             Assert.IsTrue(mock.HasRead);
             Assert.IsTrue(mock.HasUpdated);
@@ -30,19 +31,20 @@ namespace _90_NumberPuzzleX.UnitTest
     {
         public bool HasRead { get; private set; }
         public bool HasUpdated { get; private set; }
-        public void Create(GameModel gameModel)
+        public Task Create(GameModel gameModel)
         {
+            return Task.Run(() => 2 + 2);
         }
 
-        public GameModel Read(Guid id)
+        public Task<GameModel> Read(Guid id)
         {
             HasRead = true;
-            return new GameModel(new []{1,2,3,4,5,6,7,8,0});
+            return Task.Run(()=> new GameModel(new []{1,2,3,4,5,6,7,8,0}));
         }
 
-        public void Update(GameModel gameModel)
+        public Task Update(GameModel gameModel)
         {
-            HasUpdated = true;
+            return Task.Run(() => HasUpdated = true);
         }
     }
 }
