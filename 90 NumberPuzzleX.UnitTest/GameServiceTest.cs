@@ -12,7 +12,7 @@ namespace _90_NumberPuzzleX.UnitTest
     class GameServiceTest
     {
         [Test]
-        public async void TestPlay()
+        public async Task TestPlay()
         {
             // Lær og bruk Moq (NuGet)
             // Men dette eksemplet viser hva mocking er
