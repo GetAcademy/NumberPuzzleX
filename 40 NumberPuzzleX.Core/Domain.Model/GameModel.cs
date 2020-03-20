@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace _40_NumberPuzzleX.Core.Domain.Model
+namespace NumberPuzzleX.Core.Domain.Model
 {
     public class GameModel : BaseModel
     {

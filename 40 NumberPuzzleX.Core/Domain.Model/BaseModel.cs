@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _40_NumberPuzzleX.Core.Domain.Model
+namespace NumberPuzzleX.Core.Domain.Model
 {
     public class BaseModel
     {
