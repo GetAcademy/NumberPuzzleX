@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _14_NumberPuzzleX.Infrastructure.DataAccess.Model
+namespace NumberPuzzleX.Infrastructure.DataAccess.Model
 {
     class GameModel
     {

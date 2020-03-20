@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using NumberPuzzleX.Core.Domain.Model;
 using NumberPuzzleX.Core.Domain.Service;
 
-namespace NumberPuzzleX.Infrastructure.API.InMemoryDb
+namespace NumberPuzzleX.Infrastructure.API.Repositories
 {
     public class InMemoryGameModelRepository : IGameModelRepository
     {

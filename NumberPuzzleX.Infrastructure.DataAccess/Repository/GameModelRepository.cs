@@ -2,12 +2,12 @@
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using _40_NumberPuzzleX.Core.Domain.Model;
-using _40_NumberPuzzleX.Core.Domain.Service;
 using Dapper;
-using DbGameModel = _14_NumberPuzzleX.Infrastructure.DataAccess.Model.GameModel;
+using NumberPuzzleX.Core.Domain.Model;
+using NumberPuzzleX.Core.Domain.Service;
+using DbGameModel = NumberPuzzleX.Infrastructure.DataAccess.Model.GameModel;
 
-namespace NumberPuzzleX.Infrastructure.DataAccess
+namespace NumberPuzzleX.Infrastructure.DataAccess.Repository
 {
     public class GameModelRepository : IGameModelRepository
     {

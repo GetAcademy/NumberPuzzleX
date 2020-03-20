@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using _40_NumberPuzzleX.Core.Domain.Model;
+using NumberPuzzleX.Core.Domain.Model;
 
-namespace _40_NumberPuzzleX.Core.Domain.Service
+namespace NumberPuzzleX.Core.Domain.Service
 {
     public interface IGameModelRepository
     {

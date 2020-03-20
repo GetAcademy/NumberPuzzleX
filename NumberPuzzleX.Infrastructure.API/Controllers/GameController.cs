@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using _10_NumberPuzzleX.Infrastructure.API.ViewModel;
-using _40_NumberPuzzleX.Core.Application.Service;
-using _40_NumberPuzzleX.Core.Domain.Model;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using NumberPuzzleX.Core.Application.Service;
+using NumberPuzzleX.Core.Domain.Model;
+using NumberPuzzleX.Infrastructure.API.ViewModel;
 
-namespace NumberPuzzleX.Controllers
+namespace NumberPuzzleX.Infrastructure.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

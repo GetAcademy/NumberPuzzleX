@@ -1,7 +1,7 @@
 using NumberPuzzleX.Core.Domain.Model;
 using NUnit.Framework;
 
-namespace NumberPuzzleX.UnitTest
+namespace _90_NumberPuzzleX.UnitTest
 {
     public class Tests
     {

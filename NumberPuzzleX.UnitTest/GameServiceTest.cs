@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using _40_NumberPuzzleX.Core.Application.Service;
-using _40_NumberPuzzleX.Core.Domain.Model;
-using _40_NumberPuzzleX.Core.Domain.Service;
+using NumberPuzzleX.Core.Application.Service;
+using NumberPuzzleX.Core.Domain.Model;
+using NumberPuzzleX.Core.Domain.Service;
 using NUnit.Framework;
 
 namespace _90_NumberPuzzleX.UnitTest

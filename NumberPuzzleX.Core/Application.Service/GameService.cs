@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using _40_NumberPuzzleX.Core.Domain.Model;
-using _40_NumberPuzzleX.Core.Domain.Service;
+using NumberPuzzleX.Core.Domain.Model;
+using NumberPuzzleX.Core.Domain.Service;
 
-namespace _40_NumberPuzzleX.Core.Application.Service
+namespace NumberPuzzleX.Core.Application.Service
 {
     public class GameService
     {

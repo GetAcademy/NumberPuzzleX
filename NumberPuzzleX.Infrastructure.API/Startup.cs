@@ -1,21 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using _10_NumberPuzzleX.Infrastructure.API.InMemoryDb;
-using _40_NumberPuzzleX.Core.Application.Service;
-using _40_NumberPuzzleX.Core.Domain.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using NumberPuzzleX.Infrastructure.DataAccess;
+using NumberPuzzleX.Core.Application.Service;
+using NumberPuzzleX.Core.Domain.Service;
+using NumberPuzzleX.Infrastructure.DataAccess.Repository;
 
-namespace NumberPuzzleX
+namespace NumberPuzzleX.Infrastructure.API
 {
     public class Startup
     {
