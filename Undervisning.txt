@@ -1,0 +1,9 @@
+1. Demo tallpuslespill som konsollapplikasjon
+2. Om onionarkitektur og OO
+3. Domenemodell i eget prosjekt, sammen med API
+4. Unit testing av domenemodellen
+5. Repositories og Services
+6. Unit testing av repositories og Services
+7. Få det til å virke med HTML og JS, controllere, InMemoryDatabase
+8. Hvorfor vi ikke skal dele ut objekter av klassene i domenemodellen
+9. Dataaksesslag med Dapper
