@@ -22,23 +22,32 @@ namespace NumberPuzzleX.Controllers
         }
 
         [HttpGet]
-        public GameModel Start()
+        public GameViewModel Start()
         {
-            return _gameService.StartGame();
+            var game = _gameService.StartGame();
+            return MapToViewModel(game);
+        }
+
+        private static GameViewModel MapToViewModel(GameModel game)
+        {
+            // Finnes ferdige pakker for dette, f.eks. AutoMapper (NuGet)
+            return new GameViewModel(game.Id.ToString(), game.PlayCount, game.IsSolved, game.Numbers);
         }
 
         [HttpGet("{gameId}")]
-        public GameModel Read(string gameId)
+        public GameViewModel Read(string gameId)
         {
             var guid = new Guid(gameId);
-            return _gameService.Read(guid);
+            var game = _gameService.Read(guid);
+            return MapToViewModel(game);
         }
 
         [HttpPut]
-        public GameModel Play(PlayViewModel play)
+        public GameViewModel Play(PlayViewModel play)
         {
             var guid = new Guid(play.GameId);
-            return _gameService.Play(play.Index, guid);
+            var game = _gameService.Play(play.Index, guid);
+            return MapToViewModel(game);
         }
     }
 }

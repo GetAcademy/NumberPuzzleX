@@ -11,7 +11,7 @@ namespace _40_NumberPuzzleX.Core.Domain.Model
         private readonly Random _random;
         public int PlayCount { get; private set; }
         public bool IsSolved => Enumerable.Range(0, _numbers.Length - 1)
-            .All(i => _numbers[i] == i + 1);
+                                          .All(i => _numbers[i] == i + 1);
 
         public char[] Numbers => Enumerable.Range(0, _numbers.Length)
                                            .Select(i => this[i])
