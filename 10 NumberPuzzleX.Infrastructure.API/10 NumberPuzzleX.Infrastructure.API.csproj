@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\40 NumberPuzzleX.Core\40 NumberPuzzleX.Core.csproj" />
+    <ProjectReference Include="..\NumberPuzzleX.Infrastructure.DataAccess\14 NumberPuzzleX.Infrastructure.DataAccess.csproj" />
   </ItemGroup>
 
 

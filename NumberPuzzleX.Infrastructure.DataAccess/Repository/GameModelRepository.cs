@@ -65,7 +65,7 @@ namespace NumberPuzzleX.Infrastructure.DataAccess
 
         private static DbGameModel MapToDb(GameModel gameModel)
         {
-            var numbers = new string(gameModel.Numbers);
+            var numbers = new string(gameModel.Numbers).Replace(' ','0');
             return new DbGameModel(gameModel.Id, gameModel.PlayCount, numbers);
         }
     }

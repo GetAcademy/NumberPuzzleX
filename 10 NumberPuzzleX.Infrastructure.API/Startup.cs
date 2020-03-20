@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NumberPuzzleX.Infrastructure.DataAccess;
 
 namespace NumberPuzzleX
 {
@@ -29,7 +30,8 @@ namespace NumberPuzzleX
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IGameModelRepository, InMemoryGameModelRepository>();
+            //services.AddSingleton<IGameModelRepository, InMemoryGameModelRepository>();
+            services.AddSingleton<IGameModelRepository, GameModelRepository>();
             services.AddScoped<GameService>();
         }
 
