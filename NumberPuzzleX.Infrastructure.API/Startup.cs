@@ -23,7 +23,7 @@ namespace NumberPuzzleX.Infrastructure.API
         {
             services.AddControllers();
             //services.AddSingleton<IGameModelRepository, InMemoryGameModelRepository>();
-            services.AddSingleton<IGameModelRepository, GameModelRepository>();
+            services.AddScoped<IGameModelRepository, GameModelRepository>();
             services.AddScoped<GameService>();
         }
 
