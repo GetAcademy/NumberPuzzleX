@@ -31,20 +31,24 @@ namespace _90_NumberPuzzleX.UnitTest
     {
         public bool HasRead { get; private set; }
         public bool HasUpdated { get; private set; }
-        public Task Create(GameModel gameModel)
+        public Task<int> Create(GameModel gameModel)
         {
-            return Task.Run(() => 2 + 2);
+            return Task.Run(() => 1);
         }
 
         public Task<GameModel> Read(Guid id)
         {
             HasRead = true;
-            return Task.Run(()=> new GameModel(new []{1,2,3,4,5,6,7,8,0}));
+            return Task.Run(() => new GameModel(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 0 }));
         }
 
-        public Task Update(GameModel gameModel)
+        public Task<int> Update(GameModel gameModel)
         {
-            return Task.Run(() => HasUpdated = true);
+            return Task.Run(() =>
+            {
+                HasUpdated = true;
+                return 1;
+            });
         }
     }
 }

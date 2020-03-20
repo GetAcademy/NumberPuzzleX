@@ -16,9 +16,13 @@ namespace _10_NumberPuzzleX.Infrastructure.API.InMemoryDb
             _gameModels = new Dictionary<Guid, GameModel>();
         }
 
-        public Task Create(GameModel gameModel)
+        public Task<int> Create(GameModel gameModel)
         {
-            return Task.Run(() => _gameModels.Add(gameModel.Id, gameModel));
+            return Task.Run(() =>
+            {
+                _gameModels.Add(gameModel.Id, gameModel);
+                return 1;
+            });
         }
 
         public Task<GameModel> Read(Guid id)
@@ -26,9 +30,13 @@ namespace _10_NumberPuzzleX.Infrastructure.API.InMemoryDb
             return Task.Run(()=> _gameModels[id]);
         }
 
-        public Task Update(GameModel gameModel)
+        public Task<int> Update(GameModel gameModel)
         {
-            return Task.Run(()=>_gameModels[gameModel.Id] = gameModel);
+            return Task.Run(()=>
+            {
+                _gameModels[gameModel.Id] = gameModel;
+                return 1;
+            });
         }
     }
 }

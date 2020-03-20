@@ -6,8 +6,8 @@ namespace _40_NumberPuzzleX.Core.Domain.Service
 {
     public interface IGameModelRepository
     {
-        Task Create(GameModel gameModel);
+        Task<int> Create(GameModel gameModel);
         Task<GameModel> Read(Guid id);
-        Task Update(GameModel gameModel);
+        Task<int> Update(GameModel gameModel);
     }
 }

@@ -11,7 +11,7 @@ namespace NumberPuzzleX.Infrastructure.DataAccess
 {
     public class GameModelRepository : IGameModelRepository
     {
-        private string _connectionString;
+        private readonly string _connectionString;
 
         /*
          * Her har jeg gjort det på aller enkleste vis.
@@ -27,9 +27,13 @@ namespace NumberPuzzleX.Infrastructure.DataAccess
                 @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=NumberPuzzleX;Integrated Security=True";
         }
 
-        public Task Create(GameModel gameModel)
+        public async Task<int> Create(GameModel gameModel)
         {
-            throw new NotImplementedException();
+            await using var conn = new SqlConnection(_connectionString);
+            const string insert =
+                "INSERT INTO Game (Id, Numbers, PlayCount) VALUES (@Id, @Numbers, @PlayCount)";
+            var dbGameModel = MapToDb(gameModel);
+            return await conn.ExecuteAsync(insert, dbGameModel);
         }
 
         public async Task<GameModel> Read(Guid id)
@@ -37,15 +41,32 @@ namespace NumberPuzzleX.Infrastructure.DataAccess
             await using var conn = new SqlConnection(_connectionString);
             const string select =
                 "SELECT Id, Numbers, PlayCount FROM Game WHERE Id = @Id";
-            var result = await conn.QueryAsync<DbGameModel>(select);
+            var result = await conn.QueryAsync<DbGameModel>(select, new {Id=id});
             var gameModel = result.SingleOrDefault();
-            var numbers = gameModel.Numbers.ToCharArray().Select(c=>c - '0').ToArray();
+            return MapToDomain(gameModel);
+        }
+
+
+
+        public async Task<int> Update(GameModel gameModel)
+        {
+            await using var conn = new SqlConnection(_connectionString);
+            const string insert =
+                "UPDATE Game SET Numbers=@Numbers, PlayCount= @PlayCount WHERE Id=@Id";
+            var dbGameModel = MapToDb(gameModel);
+            return await conn.ExecuteAsync(insert, dbGameModel);
+        }
+
+        private static GameModel MapToDomain(DbGameModel gameModel)
+        {
+            var numbers = gameModel.Numbers.ToCharArray().Select(c => c - '0').ToArray();
             return new GameModel(gameModel.Id, gameModel.PlayCount, numbers);
         }
 
-        public Task Update(GameModel gameModel)
+        private static DbGameModel MapToDb(GameModel gameModel)
         {
-            throw new NotImplementedException();
+            var numbers = new string(gameModel.Numbers);
+            return new DbGameModel(gameModel.Id, gameModel.PlayCount, numbers);
         }
     }
 }
