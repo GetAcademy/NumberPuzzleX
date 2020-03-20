@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>_40_NumberPuzzleX.Core</RootNamespace>
   </PropertyGroup>
 
 </Project>

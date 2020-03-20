@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>_90_NumberPuzzleX.UnitTest</RootNamespace>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
