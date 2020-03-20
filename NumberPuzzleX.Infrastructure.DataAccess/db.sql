@@ -1,4 +1,8 @@
-﻿CREATE TABLE [dbo].[Game](
+﻿-- Lag en database selv manuelt
+-- Opprett så tabellen Game med koden under. 
+-- Husk å endre connection string i GameModelRepository
+
+CREATE TABLE [dbo].[Game](
 	[Id] [uniqueidentifier] NOT NULL,
 	[Numbers] [char](9) NOT NULL,
 	[PlayCount] [int] NOT NULL,
